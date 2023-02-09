@@ -42,7 +42,7 @@ public abstract class LinkedList<T> implements IDedObject<T> {
 		}
 		// else, traverse the list to find the next place to put the old head node
 		else {
-			Node last = head;
+			Node<T> last = head;
 			while (last.next != null) {
 				last = last.next;
 			}
