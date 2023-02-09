@@ -11,7 +11,6 @@ public class Product<T> implements IDedObject<T> {
 	private String supplierName; // name of the supplier of the product object
 
 	public static void main(String[] args) {
-		LinkedList<T> list;
 
 	}
 
