@@ -7,7 +7,7 @@ public abstract class LinkedList<T> implements IDedObject<T> {
 
 	// clear out the whole linked list
 	public void makeEmpty() {
-		// this method will make things empty
+
 	}
 
 	// traverse the linked list to find node with ID ID
