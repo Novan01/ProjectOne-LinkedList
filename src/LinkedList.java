@@ -3,18 +3,8 @@
 import java.io.*;
 
 //custom singly linked list class that impplements IDedObject interface
-public abstract class LinkedList<T> implements IDedObject<T> {
-	Node<T> head;
-
-	static class Node<T> {
-		int data;
-		Node<T> next;
-
-		Node(int d) {
-			data = d;
-			next = null;
-		}
-	}
+public abstract class LinkedList<E> implements IDedObject {
+	public Node<E> head;
 
 	public LinkedList() {
 		head = null;
@@ -26,15 +16,15 @@ public abstract class LinkedList<T> implements IDedObject<T> {
 	}
 
 	// traverse the linked list to find node with ID ID
-	public T findID(int ID) {
+	public Node<E> findID(int ID) {
 		return null;
 
 	}
 
-	// insert node at the fron
-	public boolean insertAtFront(Node<T> x) {
-		Node<T> new_head = x; // new head node is the node we want to inset
-		new_head.next = null; // the pointer to the next is now pointing at old head
+	// insert Node<E> at the fron
+	public boolean insertAtFront(Node<E> x) {
+		Node<E> new_head = x; // new head node is the node we want to inset
+		new_head.setNext(null); // the pointer to the next is now pointing at old head
 
 		// if there is no head node
 		if (head == null) {
@@ -42,29 +32,29 @@ public abstract class LinkedList<T> implements IDedObject<T> {
 		}
 		// else, traverse the list to find the next place to put the old head node
 		else {
-			Node<T> last = head;
-			while (last.next != null) {
-				last = last.next;
+			Node<E> last = head;
+			while (last.getNext() != null) {
+				last = last.getNext();
 			}
-			last.next = new_head;
+			last.setNext(new_head);
 		}
 		return true;
 	}
 
 	// delete front node
-	public T deleteFromFront() {
+	public Node<E> deleteFromFront() {
 		return null;
 	}
 
 	// delete node with ID - int ID
-	public T delete(int ID) {
-		Node<T> deleteNode = new Node<T>(ID); // create node for what we want to delete
-		deleteNode.next = null;
+	public Node<E> delete(int ID) {
+		Node<E> deleteNode = new Node(ID); // create node for what we want to delete
+		deleteNode.setNext(null);
 
-		Node<T> currNode = head;
+		Node<E> currNode = head;
 
 		while (currNode != null) {
-			if (currNode.data == deleteNode.data) {
+			if (currNode.getData() == deleteNode.getData()) {
 				currNode = null;
 			}
 		}
@@ -73,12 +63,12 @@ public abstract class LinkedList<T> implements IDedObject<T> {
 
 	// traverse the linked list and print all nodes and data
 	public void printAllRecords() {
-		Node<T> currNode = head;
-		Node<T> nextNode = head.next;
+		Node<E> currNode = head;
+		Node<E> nextNode = head.getNext();
 		while (currNode != null) {
 			System.out.println(currNode);
 			currNode = nextNode;
-			nextNode = nextNode.next;
+			nextNode = nextNode.getNext();
 		}
 	}
 
