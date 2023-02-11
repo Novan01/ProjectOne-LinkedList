@@ -16,14 +16,14 @@ public abstract class LinkedList<E> implements IDedObject {
 	}
 
 	// traverse the linked list to find node with ID ID
-	public Node<E> findID(int ID) {
+	public E findID(int ID) {
 		return null;
 
 	}
 
 	// insert Node<E> at the fron
-	public boolean insertAtFront(Node<E> x) {
-		Node<E> new_head = x; // new head node is the node we want to inset
+	public boolean insertAtFront(E x) {
+		Node<E> new_head = new Node(x); // new head node is the node we want to inset
 		new_head.setNext(null); // the pointer to the next is now pointing at old head
 
 		// if there is no head node
@@ -42,12 +42,12 @@ public abstract class LinkedList<E> implements IDedObject {
 	}
 
 	// delete front node
-	public Node<E> deleteFromFront() {
+	public E deleteFromFront() {
 		return null;
 	}
 
 	// delete node with ID - int ID
-	public Node<E> delete(int ID) {
+	public E delete(int ID) {
 		Node<E> deleteNode = new Node(ID); // create node for what we want to delete
 		deleteNode.setNext(null);
 
