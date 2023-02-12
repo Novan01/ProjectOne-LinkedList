@@ -11,7 +11,6 @@ public class Product<T> implements IDedObject {
 	private String supplierName; // name of the supplier of the product object
 
 	public static void main(String[] args) {
-		LinkedList<Integer> list = new LinkedList<Integer>(); // list to hold product ID's
 		menuSelect();
 	}
 
@@ -29,6 +28,8 @@ public class Product<T> implements IDedObject {
 	public static void menuSelect() {
 		Scanner userInput = new Scanner(System.in);
 		int option;
+
+		LinkedList<Integer> list_ID = new LinkedList<Integer>(); // list to hold product ID's
 		// int option = userInput.nextInt();
 
 		do {
@@ -39,6 +40,7 @@ public class Product<T> implements IDedObject {
 				// case 1 - make empty
 				case 1:
 					System.out.println("Emptying the List");
+					list_ID.makeEmpty();
 					break;
 				// case 2 - find ID
 				case 2:
@@ -46,7 +48,7 @@ public class Product<T> implements IDedObject {
 				// case 3 - insert at front
 				case 3:
 					System.out.println("Enter Product ID: ");
-					productID = userInput.nextInt();
+					// productID = userInput.nextInt();
 					break;
 				// case 4 - delete from front
 				case 4:

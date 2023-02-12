@@ -7,11 +7,19 @@ public class LinkedList<T> implements IDedObject {
 	public Node<T> head;
 
 	public LinkedList() {
-		head = null;
+		head.setData(null);
+		head.setNext(null);
 	}
 
 	// clear out the whole linked list
 	public void makeEmpty() {
+		Node<T> currNode = head;
+		if (currNode != null) {
+			while (currNode.getNext() != null) {
+				// currNode.setData(null);
+				currNode = null;
+			}
+		}
 
 	}
 
@@ -24,7 +32,8 @@ public class LinkedList<T> implements IDedObject {
 	// insert Node<E> at the fron
 	public boolean insertAtFront(T x) {
 		Node<T> new_head = new Node<T>(x); // new head node is the node we want to inset
-		new_head.setNext(null); // the pointer to the next is now pointing at old head
+		// new_head.setNext(null); // the pointer to the next is now pointing at old
+		// head
 
 		// if there is no head node
 		if (head == null) {
@@ -32,32 +41,25 @@ public class LinkedList<T> implements IDedObject {
 		}
 		// else, traverse the list to find the next place to put the old head node
 		else {
-			Node<T> last = head;
-			while (last.getNext() != null) {
-				last = last.getNext();
-			}
-			last.setNext(new_head);
+			new_head.setNext(head); // set the next pointer to the current head
 		}
 		return true;
 	}
 
 	// delete front node
 	public T deleteFromFront() {
-		return null;
+		T headData = head.getData();
+		if (head != null) {
+			head = null;
+		}
+		return headData;
 	}
 
 	// delete node with ID - int ID
 	public T delete(int ID) {
 
-		/*
-		 * Node<T> currNode = head;
-		 * 
-		 * while (currNode != null) {
-		 * if (currNode.getID() == ID) {
-		 * currNode = null;
-		 * }
-		 * }
-		 */
+		Node<T> currNode = head;
+
 		return null;
 	}
 
