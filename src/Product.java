@@ -29,7 +29,7 @@ public class Product<T> implements IDedObject {
 		Scanner userInput = new Scanner(System.in);
 		int option;
 
-		LinkedList<Integer> list_ID = new LinkedList<Integer>(); // list to hold product ID's
+		LinkedList<Product> list = new LinkedList<Product>(); // list to hold product ID's
 		// int option = userInput.nextInt();
 
 		do {
@@ -40,7 +40,7 @@ public class Product<T> implements IDedObject {
 				// case 1 - make empty
 				case 1:
 					System.out.println("Emptying the List");
-					list_ID.makeEmpty();
+					list.makeEmpty();
 					break;
 				// case 2 - find ID
 				case 2:
