@@ -5,7 +5,7 @@
 //custom singly linked list class that impplements IDedObject interface
 public class LinkedList<T> {
 	private Node<T> head;
-	private Node<T> tail;
+	// private Node<T> tail;
 
 	public LinkedList() {
 
@@ -52,7 +52,7 @@ public class LinkedList<T> {
 		// if the list is empty the new node is the head node and also tail
 		if (isEmpty()) {
 			head = new Node<T>(x);
-			tail = head;
+			// tail = head;
 			return true;
 		}
 		// otherwise create a new node and set its next pointer to the head and set head
