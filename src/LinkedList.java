@@ -14,12 +14,16 @@ public class LinkedList<T> {
 	// clear out the whole linked list
 	public void makeEmpty() {
 		Node<T> currNode = head;
+		if (isEmpty()) {
+			throw new RuntimeException("List is already Empty");
+		}
 		if (!isEmpty()) {
 			while (currNode.getNext() != null) {
-				// currNode.setData(null);
-				currNode = null;
+				head = head.getNext();
+				currNode.setNext(null);
 			}
 		}
+		System.out.println("List empty");
 
 	}
 

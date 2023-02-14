@@ -27,7 +27,14 @@ public class Product implements Compareable<Product>, IDedObject {
 	}
 
 	public static void printMenu() {
-
+		System.out.println("Operations on List");
+		System.out.println("1 - Empty List");
+		System.out.println("2 - Find ID");
+		System.out.println("3 - Insert At Front");
+		System.out.println("4 - Delete From Front");
+		System.out.println("5 - Delete ID");
+		System.out.println("6 - Print All Records");
+		System.out.println("7 - Done");
 	}
 
 	public static void menuSelect() {
@@ -38,26 +45,30 @@ public class Product implements Compareable<Product>, IDedObject {
 		// int option = userInput.nextInt();
 
 		do {
-
+			printMenu();
 			option = userInput.nextInt();
-
+			System.out.println("Your Choice: " + option);
 			switch (option) {
 				// case 1 - make empty
 				case 1:
-					System.out.println("Emptying the List");
 					list.makeEmpty();
 					break;
 				// case 2 - find ID
 				case 2:
+
 					break;
 				// case 3 - insert at front
 				case 3:
-					System.out.println("Enter Product ID: ");
+
+					System.out.print("Enter Product ID: ");
 					int ID = userInput.nextInt();
-					System.out.println("Enter Product Name: ");
+
+					System.out.print("Enter Product Name: ");
 					String name = userInput.next();
-					System.out.println("Enter Supplier Name: ");
+
+					System.out.print("Enter Supplier Name: ");
 					String supplier = userInput.next();
+
 					Product newProduct = new Product(ID, name, supplier);
 
 					list.insertAtFront(newProduct);
@@ -66,12 +77,17 @@ public class Product implements Compareable<Product>, IDedObject {
 					break;
 				// case 4 - delete from front
 				case 4:
+					Product data = list.deleteFromFront();
+					System.out.println("First Item Deleted: ");
+					data.printID();
+
 					break;
 				// case 5 - delete id
 				case 5:
 					break;
 				// case 6 - print all records
 				case 6:
+					System.out.println("Printing all Records\n");
 					list.printAllRecords();
 					break;
 				// case 7 - done
@@ -79,7 +95,7 @@ public class Product implements Compareable<Product>, IDedObject {
 					break;
 
 				default:
-					System.out.println("Invalid Option - Please enter 1-7");
+					System.out.println("Invalid Option - Please enter 1-7\n");
 					break;
 			}
 
@@ -96,7 +112,7 @@ public class Product implements Compareable<Product>, IDedObject {
 	// implementation of interface method printID - print details of ID seperate
 	// lines
 	public void printID() {
-		System.out.println(this.productID + "\n" + this.productName + "\n" + this.supplierName);
+		System.out.println("ID: " + this.productID + "\n" + "Product Name: " + this.productName + "\n" + "Supplier Name: " + this.supplierName + "\n");
 	}
 
 }

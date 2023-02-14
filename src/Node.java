@@ -9,7 +9,7 @@ public class Node<T> {
 
     // method to get the data of the node
     public T getData() {
-        return data;
+        return (T) this.data;
     }
 
     // method to set node data
