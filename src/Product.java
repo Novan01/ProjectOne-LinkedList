@@ -3,7 +3,7 @@
 //implements IDedObject interface
 import java.util.*;
 
-public class Product<T> implements IDedObject {
+public class Product implements Compareable<Product>, IDedObject {
 
 	// required variables
 	private int productID; // ID of the product object

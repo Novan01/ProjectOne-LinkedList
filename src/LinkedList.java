@@ -3,7 +3,7 @@
 //import java.io.*;
 
 //custom singly linked list class that impplements IDedObject interface
-public class LinkedList<T> implements IDedObject {
+public class LinkedList<T> {
 	private Node<T> head;
 	private Node<T> tail;
 
@@ -103,15 +103,6 @@ public class LinkedList<T> implements IDedObject {
 			currNode = currNode.getNext();
 		}
 		System.out.println();
-	}
-
-	public int getID() {
-
-		return 0;
-	}
-
-	public void printID() {
-		// TODO Auto-generated method stub
 	}
 
 	public boolean isEmpty() {
