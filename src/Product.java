@@ -55,7 +55,9 @@ public class Product implements Compareable<Product>, IDedObject {
 					break;
 				// case 2 - find ID
 				case 2:
-
+					System.out.print("ID No: ");
+					int searchID = userInput.nextInt();
+					list.findID(searchID);
 					break;
 				// case 3 - insert at front
 				case 3:
@@ -72,7 +74,6 @@ public class Product implements Compareable<Product>, IDedObject {
 					Product newProduct = new Product(ID, name, supplier);
 
 					list.insertAtFront(newProduct);
-					System.out.println(newProduct.getID());
 
 					break;
 				// case 4 - delete from front
