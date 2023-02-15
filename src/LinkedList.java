@@ -1,10 +1,11 @@
 
+
 //Linked List class
 //import java.io.*;
 
 
 //custom singly linked list class that impplements IDedObject interface
-public class LinkedList<T> {
+public class LinkedList<T extends IDedObject> {
 	private Node<T> head;
 	// private Node<T> tail;
 
@@ -30,31 +31,41 @@ public class LinkedList<T> {
 	// traverse the linked list to find node with ID ID - DOESNT WORK
 	public T findID(int ID) {
 
-		Node<T> currNode = head;
-		Node<T> searchNode = new Node(ID);
-		T nodeData = currNode.getData();
-
 		if (isEmpty()) {
 			throw new RuntimeException("List is Empty");
 		}
-		while (!isEmpty()) {
-			if (currNode.getData().equals(ID)) {
-				return nodeData;
-			} 
-			else {
-				searchNode = head.getNext();
-				nodeData = searchNode.getData();
-				if (searchNode.getNext() == null) {
-					throw new RuntimeException("The given ID is not in the list");
-				}
-			}
+		//if our desired node if the first node then retrieve the data and return the data
+		if(head.getData().getID() == ID) {
+			T nodeData = head.getData();
+			return nodeData;
 		}
-		return null;
+		//otherwise set our head node, next ptr and data
+		
+		Node<T> nextPtr = head.getNext();
+		T nodeData = null;
+
+		//while there is still another node to check
+		while (nextPtr != null) {
+			if(nextPtr.getData().getID() == ID)
+			{
+				//our nodedata = our next ptr data 
+				nodeData = nextPtr.getData();
+				break;
+			}
+			else {
+				//else our current node pointer goes to the next node and our next ptr points to its next node
+				
+				nextPtr = nextPtr.getNext();
+			}
+			
+		}
+		return nodeData;
 
 	}
 
 	// insert Node<E> at the fron
 	public boolean insertAtFront(T x) {
+		Node<T> currNode = head;
 		// if the list is empty the new node is the head node and also tail
 		if (isEmpty()) {
 			head = new Node<T>(x);
@@ -63,6 +74,16 @@ public class LinkedList<T> {
 		}
 		// otherwise create a new node and set its next pointer to the head and set head
 		// to newnode
+		while(currNode != null) {
+			//if the current node has the same id as the node we want to create
+			if(currNode.getData().getID() == x.getID()) {
+				return false;
+			}
+			else {
+				currNode = currNode.getNext();
+			}
+			
+		}
 		Node<T> newNode = new Node<T>(x);
 		newNode.setNext(head);
 		head = newNode;
@@ -80,38 +101,58 @@ public class LinkedList<T> {
 		return currNode.getData();
 	}
 
-	// delete node with ID - int ID - DOESNT WORK
+	// delete node with ID - int ID
 	public T delete(int ID) {
-		Node<T> currNode = head;
-		T nodeData = currNode.getData();
 
 		if (isEmpty()) {
 			throw new RuntimeException("List is Empty");
 		}
-		while (!isEmpty()) {
-			if(nodeData.equals(ID))
+
+		//if our desired node if the first node then retrieve the data and return the node while setting the head to the next node
+		if(head.getData().getID() == ID) {
+			T nodeData = head.getData();
+			head = head.getNext();
+			return nodeData;
+		}
+		//otherwise set our head node, next ptr and data
+		Node<T> currNode = head;
+		Node<T> nextPtr = head.getNext();
+		T nodeData = null;
+
+		//while there is still another node to check
+		while (nextPtr != null) {
+			if(nextPtr.getData().getID() == ID)
 			{
-				currNode = currNode.getNext();
+				//our nodedata = our next ptr data and set the current node to the next nodes next pointer to delete the next node
+				nodeData = nextPtr.getData();
+				currNode.setNext(nextPtr.getNext());
+				break;
+			}
+			else {
+				//else our current node pointer goes to the next node and our next ptr points to its next node
+				currNode = nextPtr;
+				nextPtr = nextPtr.getNext();
 			}
 			
 		}
-
-		currNode.setNext(null);
 		return nodeData;
+		
 	}
 
 	// traverse the linked list and print all nodes and data
 	public void printAllRecords() {
 		Node<T> currNode = head;
-		// while the currentNode is not empty print the value of the current node then
-		// get next
+		if(isEmpty()) {
+			throw new RuntimeException("No records to print");
+		}
+		//while each node is not null print the data and set currnode to the next node
 		while (currNode != null) {
-			System.out.println(currNode.getData());
+			currNode.getData().printID();
 			currNode = currNode.getNext();
 		}
-		System.out.println();
 	}
 
+	//method to check that there is a head meaning the list is not empty
 	public boolean isEmpty() {
 		return head == null;
 	}

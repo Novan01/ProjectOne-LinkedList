@@ -9,7 +9,7 @@ public class Node<T> {
 
     // method to get the data of the node
     public T getData() {
-        return (T) this.data;
+        return this.data;
     }
 
     // method to set node data
@@ -29,7 +29,8 @@ public class Node<T> {
 
     // method to convert data to string
     public String toString() {
-        return data.toString();
+        return this.data.toString();
     }
+
 
 }

@@ -57,6 +57,10 @@ public class Product implements Comparable<Product>, IDedObject {
 				case 2:
 					System.out.print("ID No: ");
 					Product dataID = list.findID(userInput.nextInt());
+					if(dataID == null) {
+						System.out.println("Item not found");
+						break;
+					}
 					dataID.printID();
 					break;
 				// case 3 - insert at front
@@ -75,7 +79,14 @@ public class Product implements Comparable<Product>, IDedObject {
 
 					Product newProduct = new Product(ID, name, supplier);
 
-					list.insertAtFront(newProduct);
+					boolean result = list.insertAtFront(newProduct);
+					if(result) {
+						System.out.println("Item Added");
+					}
+					else {
+						System.out.println("Item ID already exists");
+						break;
+					}
 
 					break;
 				// case 4 - delete from front
@@ -89,6 +100,10 @@ public class Product implements Comparable<Product>, IDedObject {
 				case 5:
 					System.out.print("ID No: ");
 					Product deleteData = list.delete(userInput.nextInt());
+					if(deleteData == null) {
+						System.out.println("Item not found");
+						break;
+					}
 					deleteData.printID();
 					break;
 				// case 6 - print all records
