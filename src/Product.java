@@ -15,6 +15,7 @@ public class Product implements Comparable<Product>, IDedObject {
 	private String supplierName; // name of the supplier of the product object
 
 
+	//product object constructor
 	public Product(int prodID, String prodName, String supName) {
 		productID = prodID;
 		productName = prodName;
@@ -25,6 +26,7 @@ public class Product implements Comparable<Product>, IDedObject {
 		menuSelect();
 	}
 
+	//method to print the menu
 	public static void printMenu() {
 		System.out.println();
 		System.out.println("Operations on List");
@@ -97,8 +99,6 @@ public class Product implements Comparable<Product>, IDedObject {
 						System.out.println("First Item Deleted: ");
 						data.printID();
 					}
-					
-
 					break;
 				// case 5 - delete id
 				case 5:
