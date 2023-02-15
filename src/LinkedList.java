@@ -27,7 +27,7 @@ public class LinkedList<T> {
 
 	}
 
-	// traverse the linked list to find node with ID ID
+	// traverse the linked list to find node with ID ID - DOESNT WORK
 	public T findID(int ID) {
 
 		Node<T> currNode = head;
@@ -80,7 +80,7 @@ public class LinkedList<T> {
 		return currNode.getData();
 	}
 
-	// delete node with ID - int ID
+	// delete node with ID - int ID - DOESNT WORK
 	public T delete(int ID) {
 		Node<T> currNode = head;
 		T nodeData = currNode.getData();
