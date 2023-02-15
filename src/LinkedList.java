@@ -88,12 +88,16 @@ public class LinkedList<T> {
 		if (isEmpty()) {
 			throw new RuntimeException("List is Empty");
 		}
-		while (!nodeData.equals(ID)) {
-			currNode = currNode.getNext();
+		while (!isEmpty()) {
+			if(nodeData.equals(ID))
+			{
+				currNode = currNode.getNext();
+			}
+			
 		}
 
 		currNode.setNext(null);
-		return currNode.getData();
+		return nodeData;
 	}
 
 	// traverse the linked list and print all nodes and data
