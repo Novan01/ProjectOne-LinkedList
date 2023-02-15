@@ -16,7 +16,7 @@ public class LinkedList<T extends IDedObject> {
 	// clear out the whole linked list
 	public void makeEmpty() {
 		if (isEmpty()) {
-			throw new RuntimeException("List is already Empty");
+			System.out.println("List is already empty");
 		}
 		Node<T> currNode = head;
 		while(!isEmpty()) {
@@ -32,7 +32,7 @@ public class LinkedList<T extends IDedObject> {
 	public T findID(int ID) {
 
 		if (isEmpty()) {
-			throw new RuntimeException("List is Empty");
+			System.out.println("List is empty - nothing to find");
 		}
 		//if our desired node if the first node then retrieve the data and return the data
 		if(head.getData().getID() == ID) {
@@ -93,7 +93,7 @@ public class LinkedList<T extends IDedObject> {
 	// delete front node
 	public T deleteFromFront() {
 		if (isEmpty()) {
-			throw new RuntimeException("List is Empty");
+			System.out.println("List is empty - nothing to delete");
 		}
 		Node<T> currNode = head;
 		head = head.getNext();
@@ -105,7 +105,7 @@ public class LinkedList<T extends IDedObject> {
 	public T delete(int ID) {
 
 		if (isEmpty()) {
-			throw new RuntimeException("List is Empty");
+			System.out.println("List is empty - nothing to delete");
 		}
 
 		//if our desired node if the first node then retrieve the data and return the node while setting the head to the next node
