@@ -23,6 +23,7 @@ public class Product implements Comparable<Product>, IDedObject {
 	}
 
 	public static void printMenu() {
+		System.out.println();
 		System.out.println("Operations on List");
 		System.out.println("1 - Empty List");
 		System.out.println("2 - Find ID");
@@ -52,8 +53,7 @@ public class Product implements Comparable<Product>, IDedObject {
 				// case 2 - find ID
 				case 2:
 					System.out.print("ID No: ");
-					int searchID = userInput.nextInt();
-					list.findID(searchID);
+					list.findID(userInput.nextInt());
 					break;
 				// case 3 - insert at front
 				case 3:

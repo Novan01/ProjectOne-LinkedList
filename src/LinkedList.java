@@ -23,7 +23,7 @@ public class LinkedList<T> {
 			currNode.setNext(null);
 		}
 		
-		System.out.println("List empty");
+		System.out.println("List emptied");
 
 	}
 
