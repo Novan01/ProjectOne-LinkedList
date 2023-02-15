@@ -2,6 +2,7 @@
 //Linked List class
 //import java.io.*;
 
+
 //custom singly linked list class that impplements IDedObject interface
 public class LinkedList<T> {
 	private Node<T> head;
@@ -13,16 +14,15 @@ public class LinkedList<T> {
 
 	// clear out the whole linked list
 	public void makeEmpty() {
-		Node<T> currNode = head;
 		if (isEmpty()) {
 			throw new RuntimeException("List is already Empty");
 		}
-		if (!isEmpty()) {
-			while (currNode.getNext() != null) {
-				head = head.getNext();
-				currNode.setNext(null);
-			}
+		Node<T> currNode = head;
+		while(!isEmpty()) {
+			head = head.getNext();
+			currNode.setNext(null);
 		}
+		
 		System.out.println("List empty");
 
 	}

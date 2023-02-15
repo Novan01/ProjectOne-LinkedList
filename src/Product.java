@@ -2,19 +2,15 @@
 //E-commerce company wants to keep track of all products using a linked list
 //implements IDedObject interface
 import java.util.*;
+import java.lang.Comparable;
 
-public class Product implements Compareable<Product>, IDedObject {
+public class Product implements Comparable<Product>, IDedObject {
 
 	// required variables
 	private int productID; // ID of the product object
 	private String productName; // name of the product object
 	private String supplierName; // name of the supplier of the product object
 
-	public Product() {
-		productID = 0;
-		productName = null;
-		supplierName = null;
-	}
 
 	public Product(int prodID, String prodName, String supName) {
 		productID = prodID;
@@ -65,11 +61,13 @@ public class Product implements Compareable<Product>, IDedObject {
 					System.out.print("Enter Product ID: ");
 					int ID = userInput.nextInt();
 
+					userInput.nextLine();
 					System.out.print("Enter Product Name: ");
-					String name = userInput.next();
+					String name = userInput.nextLine();
 
+					//userInput.nextLine();
 					System.out.print("Enter Supplier Name: ");
-					String supplier = userInput.next();
+					String supplier = userInput.nextLine();
 
 					Product newProduct = new Product(ID, name, supplier);
 
@@ -106,14 +104,29 @@ public class Product implements Compareable<Product>, IDedObject {
 	}
 
 	// implementation of interface method getID - returns the Id of the object
+	@Override
 	public int getID() {
 		return this.productID;
 	}
 
 	// implementation of interface method printID - print details of ID seperate
 	// lines
+	@Override
 	public void printID() {
 		System.out.println("ID: " + this.productID + "\n" + "Product Name: " + this.productName + "\n" + "Supplier Name: " + this.supplierName + "\n");
+	}
+
+	@Override
+	public int compareTo(Product o) {
+		// if the string are not equal
+        if (this.productName.compareTo(o.productName) != 0) {
+            return this.productName.compareTo(o.productName);
+        }
+        else {
+            // we compare int values
+            // if the strings are equal
+            return this.productID - o.productID;
+        }
 	}
 
 }
