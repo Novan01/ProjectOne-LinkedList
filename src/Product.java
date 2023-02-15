@@ -92,8 +92,12 @@ public class Product implements Comparable<Product>, IDedObject {
 				// case 4 - delete from front
 				case 4:
 					Product data = list.deleteFromFront();
-					System.out.println("First Item Deleted: ");
-					data.printID();
+					
+					if(data != null) {
+						System.out.println("First Item Deleted: ");
+						data.printID();
+					}
+					
 
 					break;
 				// case 5 - delete id
