@@ -143,7 +143,7 @@ public class LinkedList<T extends IDedObject> {
 	public void printAllRecords() {
 		Node<T> currNode = head;
 		if(isEmpty()) {
-			throw new RuntimeException("No records to print");
+			System.out.println("List is empty - No records to print");
 		}
 		//while each node is not null print the data and set currnode to the next node
 		while (currNode != null) {
