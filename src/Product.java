@@ -1,6 +1,9 @@
 
 //E-commerce company wants to keep track of all products using a linked list
 //implements IDedObject interface
+
+/*Need to work on the findID function and delete(ID) functions
+*/
 import java.util.*;
 import java.lang.Comparable;
 
@@ -53,7 +56,8 @@ public class Product implements Comparable<Product>, IDedObject {
 				// case 2 - find ID
 				case 2:
 					System.out.print("ID No: ");
-					list.findID(userInput.nextInt());
+					Product dataID = list.findID(userInput.nextInt());
+					dataID.printID();
 					break;
 				// case 3 - insert at front
 				case 3:
@@ -83,6 +87,9 @@ public class Product implements Comparable<Product>, IDedObject {
 					break;
 				// case 5 - delete id
 				case 5:
+					System.out.print("ID No: ");
+					Product deleteData = list.delete(userInput.nextInt());
+					deleteData.printID();
 					break;
 				// case 6 - print all records
 				case 6:

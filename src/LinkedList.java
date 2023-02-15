@@ -31,18 +31,20 @@ public class LinkedList<T> {
 	public T findID(int ID) {
 
 		Node<T> currNode = head;
+		Node<T> searchNode = new Node(ID);
 		T nodeData = currNode.getData();
 
 		if (isEmpty()) {
 			throw new RuntimeException("List is Empty");
 		}
-		while (!nodeData.equals(ID)) {
-			if (nodeData.equals(ID)) {
+		while (!isEmpty()) {
+			if (currNode.getData().equals(ID)) {
 				return nodeData;
-			} else {
-				currNode = head.getNext();
-				nodeData = currNode.getData();
-				if (currNode.getNext() == null) {
+			} 
+			else {
+				searchNode = head.getNext();
+				nodeData = searchNode.getData();
+				if (searchNode.getNext() == null) {
 					throw new RuntimeException("The given ID is not in the list");
 				}
 			}
@@ -81,18 +83,15 @@ public class LinkedList<T> {
 	// delete node with ID - int ID
 	public T delete(int ID) {
 		Node<T> currNode = head;
-		Node<T> prevNode = null;
 		T nodeData = currNode.getData();
 
 		if (isEmpty()) {
 			throw new RuntimeException("List is Empty");
 		}
 		while (!nodeData.equals(ID)) {
-			prevNode = currNode;
 			currNode = currNode.getNext();
 		}
 
-		prevNode.setNext(currNode.getNext());
 		currNode.setNext(null);
 		return currNode.getData();
 	}
