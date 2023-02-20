@@ -32,6 +32,12 @@ public class LinkedList<T extends IDedObject> {
 	// traverse the linked list to find node with ID ID - DOESNT WORK
 	public T findID(int ID) {
 
+		//if the head is null return nothing to search
+		if(isEmpty()) {
+			//System.out.println("The list is empty");
+			return null;
+		}
+
 		//if our desired node if the first node then retrieve the data and return the data
 		if(head.getData().getID() == ID) {
 			T nodeData = head.getData();
